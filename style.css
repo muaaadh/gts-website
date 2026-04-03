@@ -156,25 +156,12 @@ h4 { font-size: 1rem; font-weight: 600; }
 
 .nav-logo {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
 }
 
-.logo-gts {
-    font-family: var(--font-body);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.logo-sub {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+.nav-logo img {
+    height: 44px;
+    width: auto;
 }
 
 .nav-menu {
