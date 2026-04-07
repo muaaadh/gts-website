@@ -48,6 +48,9 @@
                 <a href="#products" class="btn btn-outline">Browse Equipment</a>
             </div>
         </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -223,6 +226,7 @@
     <section class="brands-strip">
         <div class="container">
             <p class="section-tag">Our Trusted Brands</p>
+            <h3>Sourced from Europe, the USA &amp; Asia</h3>
             <div class="brands-logo-grid">
                 <div class="brand-logo-item"><img src="images/brands/angelopo.png" alt="Angelo Po"><span class="brand-logo-label">Angelo Po</span></div>
                 <div class="brand-logo-item"><img src="images/brands/fagor.png" alt="Fagor"><span class="brand-logo-label">Fagor</span></div>
@@ -244,86 +248,225 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="section clients" id="clients">
+    <!-- THE UNIQUE SECTION: Resort Spotlight (interactive showcase) -->
+    <section class="spotlight-section" id="clients">
         <div class="container">
             <div class="section-header">
                 <p class="section-tag">Our Clients</p>
-                <h2>Trusted by the Maldives' Finest Properties</h2>
+                <h2>Trusted by the Maldives' Finest</h2>
+                <p>Hover or tap a property to see the resorts we serve.</p>
             </div>
-            <div class="clients-marquee">
-                <div class="clients-track">
-                    <span class="client-name">One &amp; Only Resorts</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Four Seasons</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Jumeirah</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Conrad Hotels &amp; Resorts</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Hyatt</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Shangri-La</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Taj Hotels &amp; Palaces</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Six Senses Resorts &amp; Spa</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Per Aquum</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Sheraton Maldives</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Bandos</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">OBLU by Atmosphere</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">OZEN</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">The Sun Siyam Iru Fushi</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Universal Enterprises</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Hulhule Island Hotel</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Atmosphere Kanifushi</span>
-                    <span class="client-divider"></span>
-                    <!-- Duplicate for seamless loop -->
-                    <span class="client-name">One &amp; Only Resorts</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Four Seasons</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Jumeirah</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Conrad Hotels &amp; Resorts</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Hyatt</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Shangri-La</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Taj Hotels &amp; Palaces</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Six Senses Resorts &amp; Spa</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Per Aquum</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Sheraton Maldives</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Bandos</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">OBLU by Atmosphere</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">OZEN</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">The Sun Siyam Iru Fushi</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Universal Enterprises</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Hulhule Island Hotel</span>
-                    <span class="client-divider"></span>
-                    <span class="client-name">Atmosphere Kanifushi</span>
+            <div class="spotlight-grid">
+                <div class="spotlight-image-wrap">
+                    <div class="spotlight-image active" data-resort="one-and-only" style="background-image: url('images/One and only.webp')"></div>
+                    <div class="spotlight-image" data-resort="four-seasons" style="background-image: url('images/Four seasons.jpg')"></div>
+                    <div class="spotlight-image" data-resort="jumeirah" style="background-image: url('images/Jumeirah.avif')"></div>
+                    <div class="spotlight-image" data-resort="conrad" style="background-image: url('images/Conrad.webp')"></div>
+                    <div class="spotlight-image" data-resort="hyatt" style="background-image: url('images/Hyatt.webp')"></div>
+                    <div class="spotlight-image" data-resort="shangri-la" style="background-image: url('images/Shangrila.webp')"></div>
+                    <div class="spotlight-image" data-resort="taj" style="background-image: url('images/Taj.jpg')"></div>
+                    <div class="spotlight-image" data-resort="six-senses" style="background-image: url('images/six senses.jpg')"></div>
+                    <div class="spotlight-image" data-resort="per-aquum" style="background-image: url('images/Per aquum.jpg')"></div>
+                    <div class="spotlight-image" data-resort="sheraton" style="background-image: url('images/Sheraton.webp')"></div>
+                    <div class="spotlight-image" data-resort="bandos" style="background-image: url('images/Bandos.webp')"></div>
+                    <div class="spotlight-image" data-resort="oblu" style="background-image: url('images/Oblu.jpg')"></div>
+                    <div class="spotlight-image" data-resort="ozen" style="background-image: url('images/Ozen.jpg')"></div>
+                    <div class="spotlight-image" data-resort="sun-siyam" style="background-image: url('images/Sun siyam.webp')"></div>
+                    <div class="spotlight-image" data-resort="universal" style="background-image: url('images/Universal.jpg')"></div>
+                    <div class="spotlight-image" data-resort="hulhule" style="background-image: url('images/hulhule island hotel.jpg')"></div>
+                    <div class="spotlight-image" data-resort="atmosphere" style="background-image: url('images/atmosphere.jpg')"></div>
+                    <div class="spotlight-image-overlay"></div>
+                    <div class="spotlight-caption">
+                        <span class="spotlight-caption-label">Featured</span>
+                        <h3 id="spotlightName">One &amp; Only Reethi Rah</h3>
+                    </div>
+                </div>
+                <div class="spotlight-list" id="spotlightList">
+                    <div class="spotlight-item active" data-resort="one-and-only" data-name="One &amp; Only Reethi Rah">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/one and only.png" alt="One & Only"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">One &amp; Only</div>
+                            <div class="spotlight-item-meta">Luxury Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="four-seasons" data-name="Four Seasons Maldives">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/four seasons.jpg" alt="Four Seasons"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Four Seasons</div>
+                            <div class="spotlight-item-meta">Luxury Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="jumeirah" data-name="Jumeirah Vittaveli">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Jumeirah.png" alt="Jumeirah"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Jumeirah</div>
+                            <div class="spotlight-item-meta">Luxury Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="conrad" data-name="Conrad Hotels &amp; Resorts">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Conrad.png" alt="Conrad"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Conrad</div>
+                            <div class="spotlight-item-meta">Hotels &amp; Resorts</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="hyatt" data-name="Park Hyatt Maldives">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Hyatt.jpg" alt="Hyatt"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Hyatt</div>
+                            <div class="spotlight-item-meta">Hotels &amp; Resorts</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="shangri-la" data-name="Shangri-La Maldives">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Shangrila.png" alt="Shangri-La"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Shangri-La</div>
+                            <div class="spotlight-item-meta">Luxury Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="taj" data-name="Taj Hotels &amp; Palaces">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Taj.jpg" alt="Taj"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Taj Hotels</div>
+                            <div class="spotlight-item-meta">Hotels &amp; Palaces</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="six-senses" data-name="Six Senses Resorts &amp; Spa">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/six senses.webp" alt="Six Senses"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Six Senses</div>
+                            <div class="spotlight-item-meta">Resorts &amp; Spa</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="per-aquum" data-name="Per Aquum Niyama">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Per aquum.jpg" alt="Per Aquum"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Per Aquum</div>
+                            <div class="spotlight-item-meta">Boutique Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="sheraton" data-name="Sheraton Maldives">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Sheraton.jpg" alt="Sheraton"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Sheraton</div>
+                            <div class="spotlight-item-meta">Maldives Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="bandos" data-name="Bandos Island Resort">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Bandos.png" alt="Bandos"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Bandos</div>
+                            <div class="spotlight-item-meta">Island Resort</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="oblu" data-name="OBLU by Atmosphere">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Oblu.jpg" alt="OBLU"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">OBLU</div>
+                            <div class="spotlight-item-meta">by Atmosphere</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="ozen" data-name="OZEN Reserve Bolifushi">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Ozen.jpg" alt="OZEN"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">OZEN</div>
+                            <div class="spotlight-item-meta">Reserve Bolifushi</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="sun-siyam" data-name="The Sun Siyam Iru Fushi">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Sun siyam.jpg" alt="Sun Siyam"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Sun Siyam</div>
+                            <div class="spotlight-item-meta">Iru Fushi</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="universal" data-name="Universal Enterprises">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Universal.png" alt="Universal Enterprises"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Universal</div>
+                            <div class="spotlight-item-meta">Enterprises</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="hulhule" data-name="Hulhule Island Hotel">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Hulhule island hotel.jpg" alt="Hulhule Island Hotel"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Hulhule</div>
+                            <div class="spotlight-item-meta">Island Hotel</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                    <div class="spotlight-item" data-resort="atmosphere" data-name="Atmosphere Kanifushi">
+                        <div class="spotlight-item-logo"><img src="images/resort logos/Atmosphere.jpg" alt="Atmosphere Kanifushi"></div>
+                        <div class="spotlight-item-text">
+                            <div class="spotlight-item-name">Atmosphere</div>
+                            <div class="spotlight-item-meta">Kanifushi</div>
+                        </div>
+                        <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
                 </div>
             </div>
-            <p class="clients-note">Our clients return to us because they know that GTS delivers reliability when it matters most.</p>
+        </div>
+    </section>
+
+    <!-- Resort Logos Slider (slows on hover) -->
+    <section class="resort-slider-section">
+        <div class="container">
+            <p class="section-tag">Properties We Serve</p>
+            <h3>Maldives' Most Iconic Hospitality Brands</h3>
+        </div>
+        <div class="resort-slider">
+            <div class="resort-slider-track" id="resortSliderTrack">
+                <div class="resort-slide"><img src="images/resort logos/one and only.png" alt="One & Only"></div>
+                <div class="resort-slide"><img src="images/resort logos/four seasons.jpg" alt="Four Seasons"></div>
+                <div class="resort-slide"><img src="images/resort logos/Jumeirah.png" alt="Jumeirah"></div>
+                <div class="resort-slide"><img src="images/resort logos/Conrad.png" alt="Conrad"></div>
+                <div class="resort-slide"><img src="images/resort logos/Hyatt.jpg" alt="Hyatt"></div>
+                <div class="resort-slide"><img src="images/resort logos/Shangrila.png" alt="Shangri-La"></div>
+                <div class="resort-slide"><img src="images/resort logos/Taj.jpg" alt="Taj"></div>
+                <div class="resort-slide"><img src="images/resort logos/six senses.webp" alt="Six Senses"></div>
+                <div class="resort-slide"><img src="images/resort logos/Per aquum.jpg" alt="Per Aquum"></div>
+                <div class="resort-slide"><img src="images/resort logos/Sheraton.jpg" alt="Sheraton"></div>
+                <div class="resort-slide"><img src="images/resort logos/Bandos.png" alt="Bandos"></div>
+                <div class="resort-slide"><img src="images/resort logos/Oblu.jpg" alt="OBLU"></div>
+                <div class="resort-slide"><img src="images/resort logos/Ozen.jpg" alt="OZEN"></div>
+                <div class="resort-slide"><img src="images/resort logos/Sun siyam.jpg" alt="Sun Siyam"></div>
+                <div class="resort-slide"><img src="images/resort logos/Universal.png" alt="Universal"></div>
+                <div class="resort-slide"><img src="images/resort logos/Hulhule island hotel.jpg" alt="Hulhule Island Hotel"></div>
+                <div class="resort-slide"><img src="images/resort logos/Atmosphere.jpg" alt="Atmosphere"></div>
+                <!-- Duplicate for seamless infinite loop -->
+                <div class="resort-slide"><img src="images/resort logos/one and only.png" alt="One & Only"></div>
+                <div class="resort-slide"><img src="images/resort logos/four seasons.jpg" alt="Four Seasons"></div>
+                <div class="resort-slide"><img src="images/resort logos/Jumeirah.png" alt="Jumeirah"></div>
+                <div class="resort-slide"><img src="images/resort logos/Conrad.png" alt="Conrad"></div>
+                <div class="resort-slide"><img src="images/resort logos/Hyatt.jpg" alt="Hyatt"></div>
+                <div class="resort-slide"><img src="images/resort logos/Shangrila.png" alt="Shangri-La"></div>
+                <div class="resort-slide"><img src="images/resort logos/Taj.jpg" alt="Taj"></div>
+                <div class="resort-slide"><img src="images/resort logos/six senses.webp" alt="Six Senses"></div>
+                <div class="resort-slide"><img src="images/resort logos/Per aquum.jpg" alt="Per Aquum"></div>
+                <div class="resort-slide"><img src="images/resort logos/Sheraton.jpg" alt="Sheraton"></div>
+                <div class="resort-slide"><img src="images/resort logos/Bandos.png" alt="Bandos"></div>
+                <div class="resort-slide"><img src="images/resort logos/Oblu.jpg" alt="OBLU"></div>
+                <div class="resort-slide"><img src="images/resort logos/Ozen.jpg" alt="OZEN"></div>
+                <div class="resort-slide"><img src="images/resort logos/Sun siyam.jpg" alt="Sun Siyam"></div>
+                <div class="resort-slide"><img src="images/resort logos/Universal.png" alt="Universal"></div>
+                <div class="resort-slide"><img src="images/resort logos/Hulhule island hotel.jpg" alt="Hulhule Island Hotel"></div>
+                <div class="resort-slide"><img src="images/resort logos/Atmosphere.jpg" alt="Atmosphere"></div>
+            </div>
         </div>
     </section>
 

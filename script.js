@@ -39,7 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Scroll animations ---
+    // --- Hero parallax (subtle) ---
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+        const updateParallax = () => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+                heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.3}px)`;
+            }
+        };
+        window.addEventListener('scroll', updateParallax, { passive: true });
+    }
+
+    // --- Scroll animations (smoother, slower) ---
     const animatedElements = document.querySelectorAll('[data-animate]');
 
     if (animatedElements.length) {
@@ -49,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const parent = entry.target.parentElement;
                     const siblings = Array.from(parent.querySelectorAll('[data-animate]'));
                     const siblingIndex = siblings.indexOf(entry.target);
-                    const delay = siblingIndex * 100;
+                    const delay = siblingIndex * 80;
 
                     setTimeout(() => {
                         entry.target.classList.add('visible');
@@ -59,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
+            threshold: 0.12,
+            rootMargin: '0px 0px -60px 0px'
         });
 
         animatedElements.forEach(el => observer.observe(el));
@@ -75,13 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
                     const target = parseInt(el.dataset.count, 10);
-                    const duration = 2000;
+                    const duration = 2200;
                     const start = performance.now();
 
                     const animate = (now) => {
                         const elapsed = now - start;
                         const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const eased = 1 - Math.pow(1 - progress, 4);
                         el.textContent = Math.round(target * eased);
 
                         if (progress < 1) {
@@ -96,6 +108,97 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.5 });
 
         stats.forEach(stat => counterObserver.observe(stat));
+    }
+
+    // --- Resort Spotlight (interactive showcase) ---
+    const spotlightItems = document.querySelectorAll('.spotlight-item');
+    const spotlightImages = document.querySelectorAll('.spotlight-image');
+    const spotlightName = document.getElementById('spotlightName');
+    const spotlightList = document.getElementById('spotlightList');
+
+    if (spotlightItems.length && spotlightImages.length) {
+        let activeIndex = 0;
+        let autoPlayInterval = null;
+        let userInteracted = false;
+
+        const setActive = (resortKey, name) => {
+            spotlightItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.resort === resortKey);
+            });
+            spotlightImages.forEach(img => {
+                img.classList.toggle('active', img.dataset.resort === resortKey);
+            });
+            if (spotlightName && name) {
+                spotlightName.innerHTML = name;
+            }
+        };
+
+        const cycleNext = () => {
+            activeIndex = (activeIndex + 1) % spotlightItems.length;
+            const item = spotlightItems[activeIndex];
+            setActive(item.dataset.resort, item.dataset.name);
+            // Auto-scroll only within the spotlight list (not the page)
+            if (spotlightList) {
+                const itemTop = item.offsetTop - spotlightList.offsetTop;
+                const itemBottom = itemTop + item.offsetHeight;
+                const listScroll = spotlightList.scrollTop;
+                const listHeight = spotlightList.clientHeight;
+                if (itemTop < listScroll) {
+                    spotlightList.scrollTo({ top: itemTop - 8, behavior: 'smooth' });
+                } else if (itemBottom > listScroll + listHeight) {
+                    spotlightList.scrollTo({ top: itemBottom - listHeight + 8, behavior: 'smooth' });
+                }
+            }
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(cycleNext, 3500);
+        };
+
+        const stopAutoPlay = () => {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        };
+
+        spotlightItems.forEach((item, index) => {
+            const onActivate = () => {
+                userInteracted = true;
+                stopAutoPlay();
+                activeIndex = index;
+                setActive(item.dataset.resort, item.dataset.name);
+            };
+            item.addEventListener('mouseenter', onActivate);
+            item.addEventListener('click', onActivate);
+            item.addEventListener('focus', onActivate);
+        });
+
+        // Resume autoplay when mouse leaves the section
+        const spotlightSection = document.querySelector('.spotlight-section');
+        if (spotlightSection) {
+            spotlightSection.addEventListener('mouseleave', () => {
+                if (userInteracted) {
+                    startAutoPlay();
+                }
+            });
+        }
+
+        // Start autoplay when section enters viewport
+        const spotlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoPlay();
+                } else {
+                    stopAutoPlay();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (spotlightSection) {
+            spotlightObserver.observe(spotlightSection);
+        }
     }
 
     // --- Contact form handling (Formspree via AJAX) ---
@@ -122,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Submit via Formspree
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
