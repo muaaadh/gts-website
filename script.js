@@ -39,16 +39,112 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Hero parallax (subtle) ---
-    const heroBg = document.querySelector('.hero-bg');
-    if (heroBg) {
-        const updateParallax = () => {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.3}px)`;
+    // --- HERO: Cinematic image carousel + Ken Burns + mouse parallax ---
+    const heroBgs = document.querySelectorAll('.hero-bg');
+    const heroDots = document.querySelectorAll('.hero-progress-dot');
+    const heroBgStack = document.getElementById('heroBgStack');
+    const heroSection = document.querySelector('.hero');
+
+    if (heroBgs.length > 1) {
+        let heroIndex = 0;
+        let heroInterval = null;
+
+        const showHeroImage = (index) => {
+            heroBgs.forEach((bg, i) => {
+                bg.classList.toggle('active', i === index);
+                if (i === index) {
+                    // Restart Ken Burns animation
+                    bg.style.animation = 'none';
+                    void bg.offsetWidth;
+                    bg.style.animation = '';
+                }
+            });
+            heroDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+                if (i === index) {
+                    // Restart progress fill animation
+                    const after = dot;
+                    after.style.animation = 'none';
+                    void after.offsetWidth;
+                    after.style.animation = '';
+                }
+            });
+        };
+
+        const advance = () => {
+            heroIndex = (heroIndex + 1) % heroBgs.length;
+            showHeroImage(heroIndex);
+        };
+
+        const startCycle = () => {
+            stopCycle();
+            heroInterval = setInterval(advance, 7000);
+        };
+
+        const stopCycle = () => {
+            if (heroInterval) {
+                clearInterval(heroInterval);
+                heroInterval = null;
             }
         };
-        window.addEventListener('scroll', updateParallax, { passive: true });
+
+        // Click dots to jump
+        heroDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                heroIndex = i;
+                showHeroImage(heroIndex);
+                startCycle();
+            });
+        });
+
+        startCycle();
+    }
+
+    // --- HERO: Mouse parallax (subtle 3D feel) ---
+    if (heroBgStack && heroSection) {
+        let targetX = 0, targetY = 0;
+        let currentX = 0, currentY = 0;
+        let rafId = null;
+
+        const lerp = (start, end, t) => start + (end - start) * t;
+
+        const animateParallax = () => {
+            currentX = lerp(currentX, targetX, 0.08);
+            currentY = lerp(currentY, targetY, 0.08);
+            heroBgStack.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+            if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
+                rafId = requestAnimationFrame(animateParallax);
+            } else {
+                rafId = null;
+            }
+        };
+
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            targetX = -x * 24;
+            targetY = -y * 24;
+            if (!rafId) rafId = requestAnimationFrame(animateParallax);
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+            if (!rafId) rafId = requestAnimationFrame(animateParallax);
+        });
+    }
+
+    // --- HERO: Vertical scroll parallax (background slower than scroll) ---
+    if (heroBgStack) {
+        const updateScrollParallax = () => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+                const offset = scrolled * 0.25;
+                heroBgStack.style.setProperty('--scroll-offset', `${offset}px`);
+            }
+        };
+        window.addEventListener('scroll', updateScrollParallax, { passive: true });
     }
 
     // --- Scroll animations (smoother, slower) ---
@@ -76,6 +172,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         animatedElements.forEach(el => observer.observe(el));
+    }
+
+    // --- Container reveal (for stagger groups: brands grid, stats) ---
+    const containerReveals = document.querySelectorAll('.brands-logo-grid, .about-stats');
+    if (containerReveals.length) {
+        const containerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    containerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        containerReveals.forEach(el => containerObserver.observe(el));
     }
 
     // --- Counter animation ---
@@ -137,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
             activeIndex = (activeIndex + 1) % spotlightItems.length;
             const item = spotlightItems[activeIndex];
             setActive(item.dataset.resort, item.dataset.name);
-            // Auto-scroll only within the spotlight list (not the page)
             if (spotlightList) {
                 const itemTop = item.offsetTop - spotlightList.offsetTop;
                 const itemBottom = itemTop + item.offsetHeight;
@@ -164,15 +274,26 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         spotlightItems.forEach((item, index) => {
-            const onActivate = () => {
+            const onHover = () => {
                 userInteracted = true;
                 stopAutoPlay();
                 activeIndex = index;
                 setActive(item.dataset.resort, item.dataset.name);
             };
-            item.addEventListener('mouseenter', onActivate);
-            item.addEventListener('click', onActivate);
-            item.addEventListener('focus', onActivate);
+            const onClick = () => {
+                const blogUrl = item.dataset.blog;
+                if (blogUrl) {
+                    window.location.href = blogUrl;
+                }
+            };
+            item.addEventListener('mouseenter', onHover);
+            item.addEventListener('focus', onHover);
+            item.addEventListener('click', onClick);
+
+            // Pointer cursor on items with blogs
+            if (item.dataset.blog) {
+                item.style.cursor = 'pointer';
+            }
         });
 
         // Resume autoplay when mouse leaves the section
@@ -199,6 +320,79 @@ document.addEventListener('DOMContentLoaded', () => {
         if (spotlightSection) {
             spotlightObserver.observe(spotlightSection);
         }
+    }
+
+    // --- Resort Logos Slider (smooth JS-driven, slows on hover) ---
+    const sliderTrack = document.getElementById('resortSliderTrack');
+    const sliderWrap = document.querySelector('.resort-slider');
+
+    if (sliderTrack && sliderWrap) {
+        let position = 0;
+        let baseSpeed = 0.5;       // pixels per frame at normal speed
+        let currentSpeed = baseSpeed;
+        let targetSpeed = baseSpeed;
+        let lastTime = performance.now();
+        let trackWidth = 0;
+        let isPaused = false;
+
+        const measureTrack = () => {
+            // Track is duplicated content, so half the width is the loop length
+            trackWidth = sliderTrack.scrollWidth / 2;
+        };
+
+        // Wait for images to load before measuring
+        const imgs = sliderTrack.querySelectorAll('img');
+        let loaded = 0;
+        const onImgLoad = () => {
+            loaded++;
+            if (loaded >= imgs.length) measureTrack();
+        };
+        imgs.forEach(img => {
+            if (img.complete) onImgLoad();
+            else img.addEventListener('load', onImgLoad);
+        });
+        // Also measure on resize
+        window.addEventListener('resize', measureTrack);
+        // Initial measure
+        setTimeout(measureTrack, 100);
+
+        const lerp = (a, b, t) => a + (b - a) * t;
+
+        const tick = (now) => {
+            const dt = Math.min(now - lastTime, 50); // cap delta time
+            lastTime = now;
+
+            // Smoothly transition speed
+            currentSpeed = lerp(currentSpeed, targetSpeed, 0.04);
+
+            if (!isPaused && trackWidth > 0) {
+                position -= currentSpeed * (dt / 16.67); // normalise to 60fps
+                if (Math.abs(position) >= trackWidth) {
+                    position += trackWidth;
+                }
+                sliderTrack.style.transform = `translate3d(${position}px, 0, 0)`;
+            }
+
+            requestAnimationFrame(tick);
+        };
+
+        // Slow down on hover
+        sliderWrap.addEventListener('mouseenter', () => {
+            targetSpeed = 0.12;
+        });
+        sliderWrap.addEventListener('mouseleave', () => {
+            targetSpeed = baseSpeed;
+        });
+
+        // Pause when off-screen
+        const sliderObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isPaused = !entry.isIntersecting;
+            });
+        }, { threshold: 0 });
+        sliderObserver.observe(sliderWrap);
+
+        requestAnimationFrame(tick);
     }
 
     // --- Contact form handling (Formspree via AJAX) ---
@@ -292,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     navLinks.forEach(link => {
                         link.style.color = '';
                         if (link.getAttribute('href') === `#${id}`) {
-                            link.style.color = '#b5313a';
+                            link.style.color = '#d44550';
                         }
                     });
                 }

@@ -28,46 +28,68 @@
                 <li><a href="#products">Products</a></li>
                 <li><a href="#clients">Clients</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#service-center">Service Center</a></li>
                 <li><a href="blog/index.html">Blog</a></li>
                 <li><a href="#contact" class="nav-cta">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section: Cinematic Multi-Image Carousel -->
     <section class="hero" id="hero">
-        <div class="hero-bg" style="background-image: url('images/maldives-hero.jpg')"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-bg-stack" id="heroBgStack">
+            <div class="hero-bg active" style="background-image: url('images/maldives-hero.jpg')"></div>
+            <div class="hero-bg" style="background-image: url('images/Jumeirah.avif')"></div>
+            <div class="hero-bg" style="background-image: url('images/Oblu.jpg')"></div>
+            <div class="hero-bg" style="background-image: url('images/Sheraton.webp')"></div>
+            <div class="hero-bg" style="background-image: url('images/Per aquum.jpg')"></div>
+        </div>
         <div class="container hero-content">
-            <p class="hero-tag">Since 2004</p>
-            <h1>Every Piece of Equipment<br>Your Property Needs — One Partner</h1>
+            <p class="hero-tag">
+                <span class="hero-tag-dot"></span>
+                Since 2004 — Maldives
+            </p>
+            <h1 id="heroHeadline">
+                <span class="word"><span class="word-inner">Every</span></span>
+                <span class="word"><span class="word-inner">piece</span></span>
+                <span class="word"><span class="word-inner">of</span></span>
+                <span class="word"><span class="word-inner">equipment</span></span><br>
+                <span class="word"><span class="word-inner">your</span></span>
+                <span class="word"><span class="word-inner">property</span></span>
+                <span class="word"><span class="word-inner">needs.</span></span>
+            </h1>
             <p class="hero-subtitle">From commercial kitchens to industrial laundry — the widest catalogue of hospitality equipment in the Maldives, sourced from the world's leading brands.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Request a Quote</a>
                 <a href="#products" class="btn btn-outline">Browse Equipment</a>
             </div>
         </div>
+        <div class="hero-progress" id="heroProgress">
+            <div class="hero-progress-dot active" data-index="0"></div>
+            <div class="hero-progress-dot" data-index="1"></div>
+            <div class="hero-progress-dot" data-index="2"></div>
+            <div class="hero-progress-dot" data-index="3"></div>
+            <div class="hero-progress-dot" data-index="4"></div>
+        </div>
         <div class="hero-scroll-indicator">
-            <span>Scroll</span>
+            <span>Scroll to explore</span>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <p class="section-tag">About GTS</p>
                 <h2>Two Decades of Hospitality Excellence</h2>
             </div>
-            <div class="about-image">
+            <div class="about-image" data-animate>
                 <img src="images/slide-2.jpg" alt="Professional commercial kitchen equipment supplied by GTS Maldives">
             </div>
             <div class="about-grid">
                 <div class="about-text">
                     <p class="lead">GTS Private Limited has been the equipment partner of choice for the Maldives hospitality industry since 2004.</p>
                     <p>From supplying single spare parts to designing and commissioning complete commercial kitchens and laundry facilities, GTS serves the full spectrum of resort and hotel needs — from boutique guesthouses to the world's most prestigious hotel chains.</p>
-                    <p>With a team carrying over 17 years of combined hospitality industry experience, and a dedicated service center staffed by technicians with over 20 years of specialised expertise, GTS is more than a supplier — we are a long-term operational partner for every property we serve.</p>
+                    <p>With a team carrying over 17 years of combined hospitality industry experience, and a dedicated technical team with over 20 years of specialised expertise, GTS is more than a supplier — we are a long-term operational partner for every property we serve.</p>
                     <p class="highlight-text">Our clients trust us because we don't just deliver equipment. We ensure it runs.</p>
                 </div>
                 <div class="about-values">
@@ -111,7 +133,7 @@
     <!-- Services Section -->
     <section class="section services" id="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <p class="section-tag">Scope of Work</p>
                 <h2>Everything Your Property Needs — Under One Roof</h2>
             </div>
@@ -151,13 +173,6 @@
                     <h3>Preventive Maintenance</h3>
                     <p>Scheduled maintenance programs that keep your equipment performing at peak efficiency, reducing downtime and extending equipment life.</p>
                 </div>
-                <div class="service-card" data-animate>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                    </div>
-                    <h3>GTS Service Center</h3>
-                    <p>Our fully equipped service center provides technical emergency response and routine maintenance — staffed by technicians with over 20 years of specialised expertise.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -165,7 +180,7 @@
     <!-- Products Section -->
     <section class="section products" id="products">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <p class="section-tag">Our Products</p>
                 <h2>World-Class Brands. Delivered Directly to You.</h2>
             </div>
@@ -225,8 +240,10 @@
     <!-- Brand Logos Strip -->
     <section class="brands-strip">
         <div class="container">
-            <p class="section-tag">Our Trusted Brands</p>
-            <h3>Sourced from Europe, the USA &amp; Asia</h3>
+            <div data-animate>
+                <p class="section-tag" style="text-align:center; display:block;">Our Trusted Brands</p>
+                <h3>Sourced from Europe, the USA &amp; Asia</h3>
+            </div>
             <div class="brands-logo-grid">
                 <div class="brand-logo-item"><img src="images/brands/angelopo.png" alt="Angelo Po"><span class="brand-logo-label">Angelo Po</span></div>
                 <div class="brand-logo-item"><img src="images/brands/fagor.png" alt="Fagor"><span class="brand-logo-label">Fagor</span></div>
@@ -251,10 +268,10 @@
     <!-- THE UNIQUE SECTION: Resort Spotlight (interactive showcase) -->
     <section class="spotlight-section" id="clients">
         <div class="container">
-            <div class="section-header">
-                <p class="section-tag">Our Clients</p>
-                <h2>Trusted by the Maldives' Finest</h2>
-                <p>Hover or tap a property to see the resorts we serve.</p>
+            <div class="section-header" data-animate>
+                <p class="section-tag">Our Clientele</p>
+                <h2>Behind Every Great Resort, There's a Supplier</h2>
+                <p>Explore the properties whose kitchens, laundries and back-of-house operations are equipped &amp; serviced by GTS.</p>
             </div>
             <div class="spotlight-grid">
                 <div class="spotlight-image-wrap">
@@ -298,11 +315,11 @@
                         </div>
                         <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
-                    <div class="spotlight-item" data-resort="jumeirah" data-name="Jumeirah Vittaveli">
+                    <div class="spotlight-item" data-resort="jumeirah" data-name="Jumeirah Vittaveli" data-blog="blog/jumeirah-vittaveli.html">
                         <div class="spotlight-item-logo"><img src="images/resort logos/Jumeirah.png" alt="Jumeirah"></div>
                         <div class="spotlight-item-text">
-                            <div class="spotlight-item-name">Jumeirah</div>
-                            <div class="spotlight-item-meta">Luxury Resort</div>
+                            <div class="spotlight-item-name">Jumeirah Vittaveli</div>
+                            <div class="spotlight-item-meta">View Case Study →</div>
                         </div>
                         <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
@@ -370,11 +387,11 @@
                         </div>
                         <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
-                    <div class="spotlight-item" data-resort="oblu" data-name="OBLU by Atmosphere">
+                    <div class="spotlight-item" data-resort="oblu" data-name="OBLU by Atmosphere" data-blog="blog/oblu-helengeli.html">
                         <div class="spotlight-item-logo"><img src="images/resort logos/Oblu.jpg" alt="OBLU"></div>
                         <div class="spotlight-item-text">
-                            <div class="spotlight-item-name">OBLU</div>
-                            <div class="spotlight-item-meta">by Atmosphere</div>
+                            <div class="spotlight-item-name">OBLU Helengeli</div>
+                            <div class="spotlight-item-meta">View Case Study →</div>
                         </div>
                         <svg class="spotlight-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
@@ -426,8 +443,11 @@
     <!-- Resort Logos Slider (slows on hover) -->
     <section class="resort-slider-section">
         <div class="container">
-            <p class="section-tag">Properties We Serve</p>
-            <h3>Maldives' Most Iconic Hospitality Brands</h3>
+            <div data-animate>
+                <p class="section-tag" style="text-align:center; display:block;">Equipment Partner To</p>
+                <h3>The Properties Behind the Maldives' Most Iconic Stays</h3>
+                <p class="slider-subtitle">From kitchen design to laundry installation and maintenance, GTS supplies the equipment that powers these resorts day in, day out.</p>
+            </div>
         </div>
         <div class="resort-slider">
             <div class="resort-slider-track" id="resortSliderTrack">
@@ -473,7 +493,7 @@
     <!-- Projects Section -->
     <section class="section projects" id="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <p class="section-tag">Our Projects</p>
                 <h2>Turnkey Projects We're Proud Of</h2>
             </div>
@@ -543,52 +563,10 @@
         </div>
     </section>
 
-    <!-- Service Center Section -->
-    <section class="section service-center" id="service-center">
-        <div class="container">
-            <div class="sc-grid">
-                <div class="sc-content">
-                    <p class="section-tag">Service Center</p>
-                    <h2>Always On. Always Ready.</h2>
-                    <p class="lead">Resort operations don't stop. Neither do we.</p>
-                    <p>The GTS Service Center provides round-the-clock technical support for all equipment supplied by GTS and beyond. Our team of technicians — with over 20 years of specialised expertise — handles everything from emergency breakdowns to scheduled preventive maintenance across kitchen, bakery, cold room, air conditioning and laundry systems.</p>
-                    <p>We don't consider a sale complete until your equipment is running perfectly and your team knows how to operate it.</p>
-                    <p class="highlight-text">Active presence across resorts throughout the Maldives with a 100% customer satisfaction record.</p>
-                </div>
-                <div class="sc-services">
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        <span>Emergency technical response</span>
-                    </div>
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                        <span>Routine preventive maintenance</span>
-                    </div>
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                        <span>Equipment installation &amp; commissioning</span>
-                    </div>
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        <span>Technical training for resort staff</span>
-                    </div>
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                        <span>Repair and overhaul</span>
-                    </div>
-                    <div class="sc-service-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                        <span>Design &amp; development oversight</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-animate>
                 <p class="section-tag">Contact Us</p>
                 <h2>Get in Touch</h2>
             </div>
@@ -679,7 +657,7 @@
                     <a href="#services">Equipment Supply</a>
                     <a href="#services">Design &amp; Construction</a>
                     <a href="#services">Installation</a>
-                    <a href="#service-center">Maintenance</a>
+                    <a href="#services">Maintenance</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
