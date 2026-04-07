@@ -278,7 +278,7 @@ p {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 1002;
     transition: all 0.6s var(--ease-out);
     will-change: top, transform, padding;
 }
@@ -419,14 +419,13 @@ p {
     align-items: center;
     background: var(--navy);
     overflow: hidden;
-    perspective: 1000px;
 }
 
 .hero-bg-stack {
     position: absolute;
     inset: -8%;
     z-index: 0;
-    transition: transform 0.4s ease-out;
+    transform: translate(var(--px, 0px), calc(var(--py, 0px) - var(--scroll-offset, 0px)));
 }
 
 .hero-bg {
@@ -436,9 +435,8 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transform: scale(1.15);
     transition: opacity 1.6s var(--ease-out);
-    will-change: opacity, transform;
+    will-change: opacity;
 }
 
 .hero-bg.active {
@@ -460,10 +458,10 @@ p {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-        rgba(10, 14, 26, 0.55) 0%,
-        rgba(10, 14, 26, 0.3) 25%,
-        rgba(10, 14, 26, 0.55) 70%,
-        rgba(10, 14, 26, 0.96) 100%);
+        rgba(10, 14, 26, 0.52) 0%,
+        rgba(10, 14, 26, 0.22) 25%,
+        rgba(10, 14, 26, 0.38) 60%,
+        rgba(10, 14, 26, 0.88) 100%);
     z-index: 1;
 }
 
@@ -2093,89 +2091,99 @@ p {
         margin-bottom: 56px;
     }
 
+    /* Mobile navbar: compact centered pill */
     .navbar {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 16px;
         width: auto;
-        left: auto;
-        right: 14px;
-        transform: none;
     }
 
     .nav-container {
-        width: auto;
-        min-width: 0;
-        padding: 10px 12px 10px 18px;
-        gap: 16px;
+        width: fit-content;
+        max-width: calc(100vw - 32px);
+        padding: 10px 16px 10px 20px;
+        gap: 20px;
+        justify-content: flex-start;
     }
 
     .navbar.scrolled {
-        right: 14px;
-        top: 14px;
+        top: 12px;
     }
 
     .navbar.scrolled .nav-container {
-        width: auto;
-        padding: 8px 10px 8px 16px;
+        width: fit-content;
+        padding: 8px 14px 8px 18px;
     }
 
     .nav-toggle {
         display: flex;
     }
 
+    /* Mobile nav overlay: full-width panel, drops from top */
     .nav-menu {
         position: fixed;
-        top: 14px;
-        right: -100%;
-        width: 86%;
-        max-width: 340px;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        width: auto;
         height: auto;
-        max-height: calc(100vh - 28px);
-        background: rgba(10, 14, 26, 0.82);
+        max-height: calc(100vh - 96px);
+        overflow-y: auto;
+        background: rgba(10, 14, 26, 0.88);
         backdrop-filter: saturate(180%) blur(48px);
         -webkit-backdrop-filter: saturate(180%) blur(48px);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 28px;
+        border-radius: 24px;
         flex-direction: column;
         align-items: stretch;
-        padding: 72px 24px 32px;
-        gap: 6px;
-        margin-right: 14px;
-        transition: right 0.5s var(--ease-out);
+        padding: 16px 16px 20px;
+        gap: 4px;
+        opacity: 0;
+        transform: translateY(-12px) scale(0.98);
+        transform-origin: top center;
+        pointer-events: none;
+        transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
         box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.12),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-            -2px 0 4px rgba(0, 0, 0, 0.18),
-            -10px 0 32px rgba(0, 0, 0, 0.32),
-            -24px 0 64px rgba(0, 0, 0, 0.18);
+            0 4px 24px rgba(0, 0, 0, 0.28),
+            0 16px 48px rgba(0, 0, 0, 0.20);
+        z-index: 1001;
     }
 
     .nav-menu.active {
-        right: 0;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
     }
 
     .nav-menu a {
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.88) !important;
-        padding: 14px 18px !important;
-        border-radius: 14px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.82) !important;
+        padding: 12px 16px !important;
+        border-radius: 12px;
         background: transparent;
         border: 1px solid transparent;
+        display: block;
+        text-align: left;
     }
 
     .nav-menu a:hover {
-        background: rgba(255, 255, 255, 0.06) !important;
+        background: rgba(255, 255, 255, 0.07) !important;
         border-color: rgba(255, 255, 255, 0.08);
         color: var(--white) !important;
     }
 
     .nav-menu li:not(:last-child) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .nav-cta {
         text-align: center;
-        margin-top: 12px;
-        padding: 14px 22px !important;
+        margin-top: 8px;
+        padding: 13px 22px !important;
         font-size: 0.78rem !important;
+        border-bottom: none !important;
     }
 
     /* Lock body scroll when menu open */
@@ -2187,13 +2195,13 @@ p {
     .nav-backdrop {
         position: fixed;
         inset: 0;
-        background: rgba(10, 14, 26, 0.4);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
+        background: rgba(10, 14, 26, 0.35);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.4s var(--ease-out);
-        z-index: 999;
+        transition: opacity 0.35s var(--ease-out);
+        z-index: 1000;
     }
 
     .nav-backdrop.active {
@@ -2323,6 +2331,7 @@ p {
 
     .hero-buttons .btn {
         width: 100%;
+        justify-content: center;
     }
 
     .about-stats {
@@ -2332,5 +2341,134 @@ p {
 
     .brands-logo-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .portfolio-card {
+        padding: 12px 10px;
+        min-height: 150px;
+        gap: 6px;
+    }
+
+    .portfolio-card-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .portfolio-card-name {
+        font-size: 0.78rem;
+    }
+
+    .section {
+        padding: 64px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+    }
+
+    .footer-grid {
+        gap: 28px;
+    }
+}
+
+/* Very small screens (≤ 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .hero-content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .nav-menu {
+        left: 10px;
+        right: 10px;
+        top: 70px;
+    }
+}
+
+/* Tablet landscape / mid-range (769px – 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .about-grid {
+        gap: 48px;
+    }
+
+    .projects-timeline {
+        max-width: 100%;
+    }
+}
+
+/* Wide screens (≥ 1400px) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1380px;
+        padding: 0 48px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Ultra-wide (≥ 1800px) */
+@media (min-width: 1800px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    h1 {
+        font-size: 5.6rem;
+    }
+}
+
+/* Short screens (max-height: 650px) — landscape phones */
+@media (max-height: 650px) and (max-width: 900px) {
+    .hero {
+        min-height: 100svh;
+    }
+
+    .hero-content {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .nav-menu {
+        max-height: calc(100svh - 80px);
+        overflow-y: auto;
     }
 }

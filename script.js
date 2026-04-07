@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startCycle();
     }
 
-    // --- HERO: Mouse parallax (subtle 3D feel) ---
+    // --- HERO: Mouse parallax (subtle feel, translate not translate3d to avoid GPU layer) ---
     if (heroBgStack && heroSection) {
         let targetX = 0, targetY = 0;
         let currentX = 0, currentY = 0;
@@ -135,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const animateParallax = () => {
             currentX = lerp(currentX, targetX, 0.08);
             currentY = lerp(currentY, targetY, 0.08);
-            heroBgStack.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+            heroBgStack.style.setProperty('--px', `${currentX}px`);
+            heroBgStack.style.setProperty('--py', `${currentY}px`);
             if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
                 rafId = requestAnimationFrame(animateParallax);
             } else {
@@ -147,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = heroSection.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
-            targetX = -x * 24;
-            targetY = -y * 24;
+            targetX = -x * 20;
+            targetY = -y * 20;
             if (!rafId) rafId = requestAnimationFrame(animateParallax);
         });
 
@@ -159,13 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- HERO: Vertical scroll parallax (background slower than scroll) ---
+    // --- HERO: Vertical scroll parallax ---
     if (heroBgStack) {
         const updateScrollParallax = () => {
             const scrolled = window.scrollY;
             if (scrolled < window.innerHeight) {
-                const offset = scrolled * 0.25;
-                heroBgStack.style.setProperty('--scroll-offset', `${offset}px`);
+                heroBgStack.style.setProperty('--scroll-offset', `${scrolled * 0.2}px`);
             }
         };
         window.addEventListener('scroll', updateScrollParallax, { passive: true });
