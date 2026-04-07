@@ -2102,7 +2102,7 @@ p {
     .nav-container {
         width: fit-content;
         max-width: calc(100vw - 32px);
-        padding: 20px 22px 20px 26px;
+        padding: 26px 26px 26px 26px;
         gap: 24px;
         justify-content: flex-start;
     }
@@ -2117,7 +2117,7 @@ p {
 
     .navbar.scrolled .nav-container {
         width: fit-content;
-        padding: 14px 20px 14px 24px;
+        padding: 18px 22px 18px 22px;
     }
 
     .nav-toggle {
@@ -2127,12 +2127,12 @@ p {
     /* Mobile nav overlay: full-width panel, drops from top */
     .nav-menu {
         position: fixed;
-        top: 84px;
+        top: 92px;
         left: 14px;
         right: 14px;
-        width: auto;
+        width: calc(100vw - 28px);
         height: auto;
-        max-height: calc(100vh - 108px);
+        max-height: calc(100vh - 112px);
         overflow-y: auto;
         background: rgba(10, 14, 26, 0.88);
         backdrop-filter: saturate(180%) blur(48px);
@@ -2140,9 +2140,10 @@ p {
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 28px;
         flex-direction: column;
-        align-items: stretch;
-        padding: 12px 12px 16px;
-        gap: 2px;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 0;
+        box-sizing: border-box;
         opacity: 0;
         transform: translateY(-14px) scale(0.97);
         transform-origin: top center;
@@ -2161,16 +2162,27 @@ p {
         pointer-events: auto;
     }
 
+    .nav-menu li {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+    }
+
     .nav-menu a {
         font-size: 1rem;
         color: rgba(255, 255, 255, 0.85) !important;
-        padding: 16px 20px !important;
+        padding: 15px 18px !important;
         border-radius: 16px;
         background: transparent;
         border: 1px solid transparent;
         display: block;
+        width: 100%;
+        box-sizing: border-box;
         text-align: left;
         letter-spacing: 0.01em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .nav-menu a:hover, .nav-menu a:active {
@@ -2184,12 +2196,13 @@ p {
     }
 
     .nav-cta {
-        text-align: center;
+        text-align: center !important;
         margin-top: 6px;
-        padding: 16px 22px !important;
+        padding: 15px 18px !important;
         font-size: 0.82rem !important;
         border-bottom: none !important;
         border-radius: 100px !important;
+        white-space: normal !important;
     }
 
     /* Lock body scroll when menu open */
