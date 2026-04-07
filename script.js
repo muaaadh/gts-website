@@ -17,25 +17,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile navigation ---
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    const closeMenu = () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        if (navBackdrop) navBackdrop.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    };
+
+    const openMenu = () => {
+        navMenu.classList.add('active');
+        navToggle.classList.add('active');
+        if (navBackdrop) navBackdrop.classList.add('active');
+        document.body.classList.add('menu-open');
+    };
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
 
         navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
+            link.addEventListener('click', closeMenu);
         });
+
+        if (navBackdrop) {
+            navBackdrop.addEventListener('click', closeMenu);
+        }
 
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
+                closeMenu();
             }
+        });
+
+        // Close menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
         });
     }
 
