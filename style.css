@@ -2131,7 +2131,7 @@ p {
         top: 88px;
         left: 14px;
         right: 14px;
-        width: calc(100vw - 28px);
+        width: auto;
         height: auto;
         max-height: calc(100vh - 108px);
         overflow-y: auto;
