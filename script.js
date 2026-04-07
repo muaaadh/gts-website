@@ -221,105 +221,18 @@ document.addEventListener('DOMContentLoaded', () => {
         stats.forEach(stat => counterObserver.observe(stat));
     }
 
-    // --- Resort Spotlight (interactive showcase) ---
-    const spotlightItems = document.querySelectorAll('.spotlight-item');
-    const spotlightImages = document.querySelectorAll('.spotlight-image');
-    const spotlightName = document.getElementById('spotlightName');
-    const spotlightList = document.getElementById('spotlightList');
-
-    if (spotlightItems.length && spotlightImages.length) {
-        let activeIndex = 0;
-        let autoPlayInterval = null;
-        let userInteracted = false;
-
-        const setActive = (resortKey, name) => {
-            spotlightItems.forEach(item => {
-                item.classList.toggle('active', item.dataset.resort === resortKey);
-            });
-            spotlightImages.forEach(img => {
-                img.classList.toggle('active', img.dataset.resort === resortKey);
-            });
-            if (spotlightName && name) {
-                spotlightName.innerHTML = name;
-            }
-        };
-
-        const cycleNext = () => {
-            activeIndex = (activeIndex + 1) % spotlightItems.length;
-            const item = spotlightItems[activeIndex];
-            setActive(item.dataset.resort, item.dataset.name);
-            if (spotlightList) {
-                const itemTop = item.offsetTop - spotlightList.offsetTop;
-                const itemBottom = itemTop + item.offsetHeight;
-                const listScroll = spotlightList.scrollTop;
-                const listHeight = spotlightList.clientHeight;
-                if (itemTop < listScroll) {
-                    spotlightList.scrollTo({ top: itemTop - 8, behavior: 'smooth' });
-                } else if (itemBottom > listScroll + listHeight) {
-                    spotlightList.scrollTo({ top: itemBottom - listHeight + 8, behavior: 'smooth' });
-                }
-            }
-        };
-
-        const startAutoPlay = () => {
-            stopAutoPlay();
-            autoPlayInterval = setInterval(cycleNext, 3500);
-        };
-
-        const stopAutoPlay = () => {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-                autoPlayInterval = null;
-            }
-        };
-
-        spotlightItems.forEach((item, index) => {
-            const onHover = () => {
-                userInteracted = true;
-                stopAutoPlay();
-                activeIndex = index;
-                setActive(item.dataset.resort, item.dataset.name);
-            };
-            const onClick = () => {
-                const blogUrl = item.dataset.blog;
-                if (blogUrl) {
-                    window.location.href = blogUrl;
-                }
-            };
-            item.addEventListener('mouseenter', onHover);
-            item.addEventListener('focus', onHover);
-            item.addEventListener('click', onClick);
-
-            // Pointer cursor on items with blogs
-            if (item.dataset.blog) {
-                item.style.cursor = 'pointer';
-            }
-        });
-
-        // Resume autoplay when mouse leaves the section
-        const spotlightSection = document.querySelector('.spotlight-section');
-        if (spotlightSection) {
-            spotlightSection.addEventListener('mouseleave', () => {
-                if (userInteracted) {
-                    startAutoPlay();
-                }
-            });
-        }
-
-        // Start autoplay when section enters viewport
-        const spotlightObserver = new IntersectionObserver((entries) => {
+    // --- Portfolio cards staggered reveal ---
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    if (portfolioGrid) {
+        const portfolioObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    startAutoPlay();
-                } else {
-                    stopAutoPlay();
+                    portfolioGrid.classList.add('revealed');
+                    portfolioObserver.disconnect();
                 }
             });
-        }, { threshold: 0.3 });
-
-        if (spotlightSection) {
-            spotlightObserver.observe(spotlightSection);
-        }
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        portfolioObserver.observe(portfolioGrid);
     }
 
     // --- Resort Logos Slider (smooth JS-driven, slows on hover) ---
