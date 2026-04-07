@@ -2102,13 +2102,13 @@ p {
     .nav-container {
         width: fit-content;
         max-width: calc(100vw - 32px);
-        padding: 14px 20px 14px 24px;
+        padding: 20px 22px 20px 26px;
         gap: 24px;
         justify-content: flex-start;
     }
 
     .nav-logo img {
-        height: 34px;
+        height: 30px;
     }
 
     .navbar.scrolled {
@@ -2117,7 +2117,7 @@ p {
 
     .navbar.scrolled .nav-container {
         width: fit-content;
-        padding: 11px 18px 11px 22px;
+        padding: 14px 20px 14px 24px;
     }
 
     .nav-toggle {
