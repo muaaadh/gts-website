@@ -275,7 +275,7 @@ p {
 /* --- Navigation: Liquid Glass Dynamic Island --- */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1002;
@@ -288,34 +288,22 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 36px;
-    padding: 16px 16px 16px 28px;
-    background: rgba(10, 14, 26, 0.78);
+    padding: 10px 12px 10px 22px;
+    background: rgba(10, 14, 26, 0.92);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
     border: 1px solid rgba(255, 255, 255, 0.13);
     border-radius: 100px;
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.12) inset,
-        0 0 0 1px rgba(0, 0, 0, 0.06),
-        0 12px 40px rgba(0, 0, 0, 0.24);
-    transition: all 0.6s var(--ease-out);
-    width: min(90vw, 960px);
-    max-width: 960px;
-}
-
-.navbar.scrolled .nav-container {
-    background: rgba(10, 14, 26, 0.92);
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.12) inset,
         0 0 0 1px rgba(0, 0, 0, 0.10),
         0 12px 40px rgba(0, 0, 0, 0.32);
-    width: min(78vw, 760px);
-    padding: 10px 12px 10px 22px;
+    transition: all 0.6s var(--ease-out);
+    width: max-content;
+    max-width: 96vw;
 }
 
-.navbar.scrolled {
-    top: 14px;
-}
+
 
 .nav-logo {
     display: flex;
@@ -329,13 +317,9 @@ p {
 }
 
 .nav-logo img {
-    height: 34px;
+    height: 30px;
     width: auto;
     transition: height 0.6s var(--ease-out);
-}
-
-.navbar.scrolled .nav-logo img {
-    height: 30px;
 }
 
 .nav-menu {
@@ -362,6 +346,7 @@ p {
     padding: 8px 14px;
     border-radius: 100px;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -2095,15 +2080,15 @@ p {
     .navbar {
         left: 50%;
         transform: translateX(-50%);
-        top: 16px;
+        top: 12px;
         width: auto;
     }
 
     .nav-container {
         width: fit-content;
         max-width: calc(100vw - 32px);
-        padding: 20px 20px 20px 20px;
-        gap: 36px;
+        padding: 14px 16px 14px 16px;
+        gap: 32px;
         justify-content: flex-start;
     }
 
@@ -2111,15 +2096,7 @@ p {
         height: 28px;
     }
 
-    .navbar.scrolled {
-        top: 12px;
-    }
 
-    .navbar.scrolled .nav-container {
-        width: fit-content;
-        padding: 14px 16px 14px 16px;
-        gap: 32px;
-    }
 
     .nav-toggle {
         display: flex;
@@ -2128,12 +2105,12 @@ p {
     /* Mobile nav overlay: full-width panel, drops from top */
     .nav-menu {
         position: fixed;
-        top: 88px;
+        top: 76px;
         left: 14px;
         right: 14px;
         width: auto;
         height: auto;
-        max-height: calc(100vh - 108px);
+        max-height: calc(100vh - 96px);
         overflow-y: auto;
         background: rgba(10, 14, 26, 0.88);
         backdrop-filter: saturate(180%) blur(48px);
@@ -2142,7 +2119,7 @@ p {
         border-radius: 28px;
         flex-direction: column;
         align-items: stretch;
-        padding: 10px;
+        padding: 20px 32px 24px;
         gap: 0;
         box-sizing: border-box;
         opacity: 0;
@@ -2172,8 +2149,8 @@ p {
     .nav-menu a {
         font-size: 1rem;
         color: rgba(255, 255, 255, 0.85) !important;
-        padding: 15px 20px !important;
-        border-radius: 16px;
+        padding: 16px 24px !important;
+        border-radius: 14px;
         background: transparent;
         border: 1px solid transparent;
         display: block;
@@ -2195,8 +2172,8 @@ p {
 
     .nav-cta {
         text-align: center !important;
-        margin-top: 6px;
-        padding: 15px 20px !important;
+        margin-top: 8px;
+        padding: 16px 24px !important;
         font-size: 0.82rem !important;
         border-bottom: none !important;
         border-radius: 100px !important;
