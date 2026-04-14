@@ -288,7 +288,7 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 36px;
-    padding: 22px 22px 22px 28px;
+    padding: 44px 16px 44px 44px;
     background: rgba(10, 14, 26, 0.78);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
@@ -2109,6 +2109,9 @@ p {
         left: 50% !important;
         right: auto !important;
         margin-left: calc(-50vw + 10px) !important;
+        margin-top: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
         bottom: auto !important;
         width: calc(100vw - 20px) !important;
         min-width: 0 !important;
@@ -2123,7 +2126,6 @@ p {
         align-items: stretch !important;
         justify-content: flex-start !important;
         box-sizing: border-box !important;
-        margin: 0 !important;
         padding: 24px 36px 28px !important;
         gap: 0 !important;
         background: rgba(10, 14, 26, 0.90) !important;
