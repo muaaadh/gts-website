@@ -2102,30 +2102,35 @@ p {
         display: flex;
     }
 
-    /* Mobile nav overlay — full reset of desktop styles */
+    /* Mobile nav overlay */
     .nav-menu {
-        all: unset;
-        box-sizing: border-box !important;
-        display: flex !important;
         position: fixed !important;
-        top: 76px;
+        top: 76px !important;
         left: 10px !important;
-        right: 10px !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: calc(100vw - 20px) !important;
+        min-width: 0 !important;
         max-width: none !important;
         height: auto !important;
-        max-height: calc(100vh - 96px);
-        overflow-y: auto;
+        min-height: 0 !important;
+        max-height: calc(100vh - 96px) !important;
+        overflow-y: auto !important;
+        display: flex !important;
         flex: none !important;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 24px 40px 28px;
-        gap: 0;
-        background: rgba(10, 14, 26, 0.90);
-        backdrop-filter: saturate(180%) blur(48px);
-        -webkit-backdrop-filter: saturate(180%) blur(48px);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 28px;
-        list-style: none;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 24px 36px 28px !important;
+        gap: 0 !important;
+        background: rgba(10, 14, 26, 0.90) !important;
+        backdrop-filter: saturate(180%) blur(48px) !important;
+        -webkit-backdrop-filter: saturate(180%) blur(48px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 28px !important;
+        list-style: none !important;
         opacity: 0;
         transform: translateY(-14px) scale(0.97);
         transform-origin: top center;
@@ -2134,56 +2139,63 @@ p {
         box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.12),
             0 4px 24px rgba(0, 0, 0, 0.28),
-            0 16px 48px rgba(0, 0, 0, 0.20);
-        z-index: 1001;
+            0 16px 48px rgba(0, 0, 0, 0.20) !important;
+        z-index: 1001 !important;
     }
 
     .nav-menu.active {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        pointer-events: auto;
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+        pointer-events: auto !important;
     }
 
     .nav-menu li {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        float: none !important;
     }
 
     .nav-menu a {
         display: block !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        font-size: 1.05rem !important;
+        font-size: 1rem !important;
         color: rgba(255, 255, 255, 0.88) !important;
-        padding: 16px 8px !important;
-        border-radius: 14px;
-        background: transparent;
-        border: 1px solid transparent;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        font-weight: 500;
+        padding: 16px 4px !important;
+        margin: 0 !important;
+        border-radius: 14px !important;
+        background: transparent !important;
+        border: 1px solid transparent !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.04em !important;
+        font-weight: 500 !important;
         white-space: normal !important;
         overflow: visible !important;
+        text-overflow: clip !important;
+        position: relative !important;
+        float: none !important;
     }
 
     .nav-menu a:hover, .nav-menu a:active {
         background: rgba(255, 255, 255, 0.07) !important;
-        border-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.08) !important;
         color: var(--white) !important;
     }
 
     .nav-menu li:not(:last-child) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
     }
 
     .nav-cta {
         text-align: center !important;
-        margin-top: 10px;
-        padding: 16px 8px !important;
+        margin-top: 10px !important;
+        padding: 16px 4px !important;
         font-size: 0.82rem !important;
         border-radius: 100px !important;
+        box-shadow: none !important;
     }
 
     /* Lock body scroll when menu open */
