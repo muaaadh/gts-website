@@ -288,7 +288,7 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 36px;
-    padding: 16px 16px 16px 28px;
+    padding: 22px 22px 22px 28px;
     background: rgba(10, 14, 26, 0.78);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
@@ -2106,8 +2106,9 @@ p {
     .nav-menu {
         position: fixed !important;
         top: 76px !important;
-        left: 10px !important;
+        left: 50% !important;
         right: auto !important;
+        margin-left: calc(-50vw + 10px) !important;
         bottom: auto !important;
         width: calc(100vw - 20px) !important;
         min-width: 0 !important;
