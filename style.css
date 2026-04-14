@@ -2102,26 +2102,31 @@ p {
         display: flex;
     }
 
-    /* Mobile nav overlay: full-width panel, drops from top */
+    /* Mobile nav overlay — full reset of desktop styles */
     .nav-menu {
-        position: fixed;
+        all: unset;
+        display: flex !important;
+        position: fixed !important;
         top: 76px;
-        left: 14px;
-        right: 14px;
-        width: auto;
-        height: auto;
+        left: 10px !important;
+        right: 10px !important;
+        width: calc(100vw - 20px) !important;
+        max-width: none !important;
+        height: auto !important;
         max-height: calc(100vh - 96px);
         overflow-y: auto;
-        background: rgba(10, 14, 26, 0.88);
+        flex: none !important;
+        flex-direction: column;
+        align-items: stretch;
+        box-sizing: border-box;
+        padding: 24px 40px 28px;
+        gap: 0;
+        background: rgba(10, 14, 26, 0.90);
         backdrop-filter: saturate(180%) blur(48px);
         -webkit-backdrop-filter: saturate(180%) blur(48px);
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 28px;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px 32px 24px;
-        gap: 0;
-        box-sizing: border-box;
+        list-style: none;
         opacity: 0;
         transform: translateY(-14px) scale(0.97);
         transform-origin: top center;
@@ -2141,23 +2146,27 @@ p {
     }
 
     .nav-menu li {
-        width: 100%;
         display: block;
+        width: 100%;
         box-sizing: border-box;
     }
 
     .nav-menu a {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.85) !important;
-        padding: 16px 24px !important;
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 1.05rem !important;
+        color: rgba(255, 255, 255, 0.88) !important;
+        padding: 16px 8px !important;
         border-radius: 14px;
         background: transparent;
         border: 1px solid transparent;
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
         text-align: center;
+        text-transform: uppercase;
         letter-spacing: 0.04em;
+        font-weight: 500;
+        white-space: normal !important;
+        overflow: visible !important;
     }
 
     .nav-menu a:hover, .nav-menu a:active {
@@ -2172,10 +2181,9 @@ p {
 
     .nav-cta {
         text-align: center !important;
-        margin-top: 8px;
-        padding: 16px 24px !important;
+        margin-top: 10px;
+        padding: 16px 8px !important;
         font-size: 0.82rem !important;
-        border-bottom: none !important;
         border-radius: 100px !important;
     }
 
