@@ -287,8 +287,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 36px;
-    padding: 44px 16px 44px 44px;
+    gap: 28px;
+    padding: 14px 8px 14px 20px;
     background: rgba(10, 14, 26, 0.78);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
@@ -357,7 +357,7 @@ p {
 .nav-cta {
     background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 100%) !important;
     color: var(--white) !important;
-    padding: 10px 22px !important;
+    padding: 12px 28px !important;
     border-radius: 100px !important;
     font-weight: 600 !important;
     box-shadow:
