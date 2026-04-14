@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/gtscommv/public_html
+    - /bin/cp -f index.html style.css script.js $DEPLOYPATH/
+    - /bin/cp -Rf images $DEPLOYPATH/
+    - /bin/cp -Rf blog $DEPLOYPATH/
