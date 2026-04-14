@@ -288,7 +288,7 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 28px;
-    padding: 155px;
+    padding: 155px 115px;
     background: rgba(10, 14, 26, 0.78);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
