@@ -26,7 +26,7 @@ This is the official website for **GTS Private Limited** (GTS Maldives) — a ho
 │   ├── kudafushi-island.html
 │   └── fushifaru.html
 └── images/
-    ├── brands/             # Supplier brand logos (16 PNGs)
+    ├── brands/             # Supplier brand logos (20 files, mixed formats — lowercase-kebab-case only)
     ├── resort logos/        # Resort/client logos (20 files, mixed formats)
     ├── slide-2.jpg         # Angelo Po kitchen equipment
     ├── maldives-hero.jpg   # Hero background (aerial resort)
@@ -77,6 +77,20 @@ This is the official website for **GTS Private Limited** (GTS Maldives) — a ho
 - Scroll parallax uses `--scroll-offset` CSS variable
 - Hero overlay gradient is intentionally lighter in the mid-section so `backdrop-filter` blur on buttons is visible
 
+### Homepage Section Order
+1. Hero → 2. Products (with `.products-cta` "Request a Quote" button → `#contact`) → 3. About → 4. Services → 5. Portfolio → 6. Resort Slider → 7. Projects → 8. Contact → Footer.
+- Contact lives at the bottom. The `#contact` anchor is used by the nav, the hero CTA, and the products CTA.
+- Do not reintroduce a standalone `.brands-strip` / `.brands-logo-grid` section — it was removed in favour of inline brand chips per product category (see Brand Logos).
+
+### Brand Logos
+- Displayed as inline chips inside `.product-brands span` in each product card: `<span><img src="images/brands/<name>.png" alt="">Brand Name</span>`.
+- CSS sizes the chip `<img>` to 32×32px desktop, 24×24px at ≤768px, 20×20px at ≤480px.
+- Brand filenames in `images/brands/` **must be lowercase-kebab-case** (e.g., `angelopo.png`, `itv-ice-makers.png`). cPanel's Linux host is case-sensitive; uppercase or spaces will 404, and unstyled `<img>` fallbacks render at the file's natural dimensions (hundreds of pixels, looks "oversized").
+
+### Portfolio Featured Cards
+- `.portfolio-card-featured` carries a "Case Study" badge (`.portfolio-card-badge`) absolutely positioned top-right.
+- To stop the badge from overlapping the centered logo, featured cards have `padding-top: 32px` (desktop), `26px` (≤768px), `22px` (≤480px). Do not remove — it's the fix for a known visual overlap.
+
 ### Adding a New Blog Post
 1. Copy any existing post HTML file (e.g., `blog/fushifaru.html`) as a template
 2. Update: title, meta description, breadcrumb, category, date, heading, subtitle, content
@@ -93,8 +107,10 @@ Fields: Full Name, Email, Phone Number, Property/Company, Subject (dropdown), Me
 ### Hosting & Deployment
 - **Repository**: github.com/muaaadh/gts-website (public)
 - **Hosting**: cPanel shared hosting at gts.com.mv
+- **CDN**: Cloudflare fronts the site. `style.css` is served with `cache-control: max-age=14400` (4h browser cache)
 - **Deploy workflow**:
   1. `git push origin main` from local
   2. cPanel → Git Version Control → Update from Remote (pulls into `~/gts-website/`)
-  3. cPanel → File Manager → copy files from `gts-website/` to `public_html/`
+  3. cPanel → File Manager → copy files from `gts-website/` to `public_html/` (copy-only — old files remain until manually deleted)
+- **Cache-busting**: After any meaningful change to `style.css`, bump the `?v=N` query on every HTML stylesheet link. Without this, returning visitors' browsers serve a stale CSS for up to 4 hours and style fixes won't appear. Batch with: `sed -i '' 's|style.css?v=N|style.css?v=N+1|' index.html blog/*.html` (replace N / N+1 with the actual numbers). Currently at `?v=2`.
 - The `.cpanel.yml` file exists for automated deployment but requires cPanel Terminal access (currently unavailable on this host)
