@@ -90,6 +90,7 @@ body {
     overflow-x: clip;
     max-width: 100%;
     width: 100%;
+    touch-action: manipulation;
 }
 
 img {
