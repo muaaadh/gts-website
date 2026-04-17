@@ -2075,12 +2075,16 @@ p {
         margin-bottom: 56px;
     }
 
-    /* Mobile navbar: compact centered pill */
+    /* Mobile navbar: compact centered pill — NO transform so that
+       position:fixed descendants (nav-menu overlay) escape to viewport */
     .navbar {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         top: 12px;
-        width: auto;
+        width: fit-content;
     }
 
     .nav-container {
