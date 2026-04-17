@@ -2076,9 +2076,9 @@ p {
     }
 
     /* Mobile navbar: compact centered pill. MUST NOT have transform,
-       backdrop-filter, filter, perspective, or contain — all of these create
-       a containing block that traps the position:fixed .nav-menu inside the
-       narrow pill width instead of letting it span the viewport. */
+       backdrop-filter, filter, perspective, contain, OR will-change with
+       any of those as values — all of these create a containing block that
+       traps the position:fixed .nav-menu inside the narrow pill width. */
     .navbar {
         left: 0 !important;
         right: 0 !important;
@@ -2089,6 +2089,10 @@ p {
         width: fit-content;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
+        will-change: auto !important;
+        filter: none !important;
+        perspective: none !important;
+        contain: none !important;
     }
 
     /* Same for nav-container in case its styles cascade */
@@ -2097,6 +2101,9 @@ p {
         -webkit-backdrop-filter: none !important;
         transform: none !important;
         filter: none !important;
+        will-change: auto !important;
+        perspective: none !important;
+        contain: none !important;
     }
 
     .nav-container {
