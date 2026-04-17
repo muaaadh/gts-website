@@ -287,8 +287,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
-    padding: 200px 150px;
+    gap: 36px;
+    padding: 28px 20px 28px 32px;
     background: rgba(10, 14, 26, 0.78);
     backdrop-filter: saturate(180%) blur(28px);
     -webkit-backdrop-filter: saturate(180%) blur(28px);
@@ -296,11 +296,11 @@ p {
     border-radius: 100px;
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.12) inset,
-        0 0 0 1px rgba(0, 0, 0, 0.06),
-        0 12px 40px rgba(0, 0, 0, 0.24);
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 12px 40px rgba(0, 0, 0, 0.28);
     transition: all 0.6s var(--ease-out);
-    width: min(90vw, 960px);
-    max-width: 960px;
+    width: min(88vw, 880px);
+    max-width: 880px;
 }
 
 
@@ -317,7 +317,7 @@ p {
 }
 
 .nav-logo img {
-    height: 30px;
+    height: 40px;
     width: auto;
     transition: height 0.6s var(--ease-out);
 }
@@ -357,7 +357,7 @@ p {
 .nav-cta {
     background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 100%) !important;
     color: var(--white) !important;
-    padding: 10px 26px !important;
+    padding: 10px 22px !important;
     border-radius: 100px !important;
     font-weight: 600 !important;
     box-shadow:
@@ -949,19 +949,39 @@ p {
 .product-brands {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .product-brands span {
-    display: inline-block;
-    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
     background: var(--cream);
-    border-radius: 100px;
-    font-size: 0.78rem;
+    border-radius: 14px;
+    font-size: 0.82rem;
     color: var(--gray-600);
     font-weight: 500;
     border: 1px solid var(--gray-200);
     transition: all var(--transition-fast);
+}
+
+.product-brands span img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.product-brands span svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+.product-brands span:hover svg {
+    opacity: 1;
 }
 
 .product-brands span:hover {
@@ -970,85 +990,11 @@ p {
     border-color: var(--accent);
 }
 
-/* --- Brand Logos Strip (LARGER) --- */
-.brands-strip {
-    padding: 100px 0;
-    background: var(--white);
-    border-top: 1px solid var(--gray-200);
-    border-bottom: 1px solid var(--gray-200);
-}
-
-.brands-strip .section-tag {
+.products-cta {
     text-align: center;
-    display: block;
-    margin-bottom: 16px;
+    margin-top: 56px;
 }
 
-.brands-strip h3 {
-    text-align: center;
-    margin-bottom: 56px;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--navy);
-}
-
-.brands-logo-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px 32px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.brand-logo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 14px;
-    padding: 8px;
-    transition: all var(--transition);
-}
-
-.brand-logo-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        0 1px 2px rgba(15, 23, 42, 0.05),
-        0 4px 12px rgba(15, 23, 42, 0.06);
-    transition: all var(--transition);
-}
-
-.brand-logo-item:hover img {
-    border-color: var(--accent);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        0 2px 4px rgba(181, 49, 58, 0.1),
-        0 12px 28px rgba(181, 49, 58, 0.18),
-        0 20px 48px rgba(181, 49, 58, 0.1);
-    transform: translateY(-6px);
-}
-
-.brand-logo-label {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--gray-500);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    transition: color var(--transition);
-}
-
-.brand-logo-item:hover .brand-logo-label {
-    color: var(--navy);
-}
 
 /* --- Resort Logos Slider (NEW) --- */
 .resort-slider-section {
@@ -1091,22 +1037,22 @@ p {
 .resort-slider-track {
     display: flex;
     align-items: center;
-    gap: 64px;
+    gap: 36px;
     width: max-content;
     will-change: transform;
 }
 
 .resort-slide {
     flex-shrink: 0;
-    height: 110px;
-    width: 200px;
+    height: 130px;
+    width: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);
     border-radius: var(--radius);
     border: 1px solid var(--gray-200);
-    padding: 22px 32px;
+    padding: 16px 22px;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.9),
         0 1px 2px rgba(15, 23, 42, 0.04),
@@ -1270,6 +1216,7 @@ p {
     background: linear-gradient(180deg, #ffffff 0%, #fff5f5 100%);
     border-color: rgba(181, 49, 58, 0.18);
     cursor: pointer;
+    padding-top: 32px;
 }
 
 .portfolio-card-featured:hover,
@@ -1975,34 +1922,6 @@ p {
     transform: translateX(0);
 }
 
-/* Brand logos staggered reveal */
-.brands-logo-grid .brand-logo-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
-}
-
-.brands-logo-grid.visible .brand-logo-item {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.brands-logo-grid.visible .brand-logo-item:nth-child(1)  { transition-delay: 0.00s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(2)  { transition-delay: 0.04s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(3)  { transition-delay: 0.08s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(4)  { transition-delay: 0.12s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(5)  { transition-delay: 0.16s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(6)  { transition-delay: 0.20s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(7)  { transition-delay: 0.24s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(8)  { transition-delay: 0.28s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(9)  { transition-delay: 0.32s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(10) { transition-delay: 0.36s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(11) { transition-delay: 0.40s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(12) { transition-delay: 0.44s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(13) { transition-delay: 0.48s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(14) { transition-delay: 0.52s; }
-.brands-logo-grid.visible .brand-logo-item:nth-child(15) { transition-delay: 0.56s; }
-
 /* Stat numbers reveal */
 .stat {
     opacity: 0;
@@ -2041,10 +1960,6 @@ p {
 
     .products-grid {
         grid-template-columns: 1fr;
-    }
-
-    .brands-logo-grid {
-        grid-template-columns: repeat(4, 1fr);
     }
 
     .portfolio-grid {
@@ -2087,7 +2002,7 @@ p {
     .nav-container {
         width: fit-content;
         max-width: calc(100vw - 32px);
-        padding: 14px 16px 14px 16px;
+        padding: 24px 20px 24px 24px;
         gap: 32px;
         justify-content: flex-start;
     }
@@ -2105,20 +2020,21 @@ p {
     /* Mobile nav overlay */
     .nav-menu {
         position: fixed !important;
-        top: 76px !important;
-        left: 50% !important;
-        right: auto !important;
-        margin-left: calc(-50vw + 10px) !important;
+        top: 68px !important;
+        left: 10px !important;
+        right: 10px !important;
+        margin-left: 0 !important;
         margin-top: 0 !important;
         margin-right: 0 !important;
         margin-bottom: 0 !important;
         bottom: auto !important;
-        width: calc(100vw - 20px) !important;
+        width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
         height: auto !important;
         min-height: 0 !important;
-        max-height: calc(100vh - 96px) !important;
+        max-height: calc(100vh - 88px) !important;
+        max-height: calc(100dvh - 88px) !important;
         overflow-y: auto !important;
         display: flex !important;
         flex: none !important;
@@ -2251,19 +2167,34 @@ p {
         grid-template-columns: 1fr;
     }
 
-    .brands-logo-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px 16px;
+    .product-brands span {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        gap: 6px;
     }
 
-    .brand-logo-item img {
-        width: 90px;
-        height: 90px;
+    .product-brands span img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .product-brands span svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .resort-slider-track {
+        gap: 22px;
     }
 
     .resort-slide {
-        width: 140px;
-        height: 80px;
+        width: 170px;
+        height: 95px;
+        padding: 12px 16px;
+    }
+
+    .portfolio-card-featured {
+        padding-top: 26px;
     }
 
     .portfolio-section {
@@ -2354,10 +2285,6 @@ p {
         gap: 28px;
     }
 
-    .brands-logo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -2367,6 +2294,10 @@ p {
         padding: 12px 10px;
         min-height: 150px;
         gap: 6px;
+    }
+
+    .portfolio-card-featured {
+        padding-top: 22px;
     }
 
     .portfolio-card-logo {
@@ -2390,6 +2321,27 @@ p {
         font-size: clamp(1.7rem, 7vw, 2.4rem);
     }
 
+    .product-brands {
+        gap: 6px;
+    }
+
+    .product-brands span {
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        gap: 5px;
+        border-radius: 10px;
+    }
+
+    .product-brands span img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .product-brands span svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .footer-grid {
         gap: 28px;
     }
@@ -2411,9 +2363,9 @@ p {
     }
 
     .nav-menu {
-        left: 10px;
-        right: 10px;
-        top: 70px;
+        top: 62px !important;
+        left: 6px !important;
+        right: 6px !important;
     }
 }
 
@@ -2483,7 +2435,7 @@ p {
     }
 
     .nav-menu {
-        max-height: calc(100svh - 80px);
-        overflow-y: auto;
+        max-height: calc(100svh - 80px) !important;
+        overflow-y: auto !important;
     }
 }

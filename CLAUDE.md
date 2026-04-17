@@ -67,9 +67,9 @@ This is the official website for **GTS Private Limited** (GTS Maldives) — a ho
 - Use `box-sizing: border-box` immediately after `all: unset` on the mobile nav overlay
 
 ### Navigation Architecture
-- **Desktop**: Single fixed pill navbar, no idle/scroll state change. Nav items right-aligned (`justify-content: flex-end`). Padding `16px 16px 16px 28px`, width `min(90vw, 960px)`.
+- **Desktop**: Single fixed pill navbar, no scroll state whatsoever. Nav items right-aligned (`justify-content: flex-end`). Padding `14px 16px 14px 28px`, width `min(88vw, 880px)`, background `rgba(10, 14, 26, 0.78)`.
 - **Mobile (≤768px)**: Compact centered pill with logo + hamburger. Overlay drops from top as a full-width card (`left: 10px; right: 10px`) with fade+scale animation. Overlay uses `all: unset` to reset desktop styles.
-- The JS `scrolled` class toggle is inert — no CSS rules target `.navbar.scrolled`.
+- No `scrolled` class anywhere — purged from JS, CSS, and HTML. Do not reintroduce it.
 
 ### Hero Section
 - 5-slide carousel with Ken Burns animation (CSS `transform: scale()` keyframes)
@@ -86,7 +86,7 @@ This is the official website for **GTS Private Limited** (GTS Maldives) — a ho
 6. Categories used: `Project Case Study` for resort projects, `Insight` for articles (e.g., procurement challenges)
 
 ### Contact Form
-The contact form uses **Formspree** (endpoint: `https://formspree.io/f/mwvapbeq`).
+The contact form uses **Formspree** (endpoint: `https://formspree.io/f/xlgabear`).
 Submissions are sent to **sales@gts.com.mv**.
 Fields: Full Name, Email, Phone Number, Property/Company, Subject (dropdown), Message.
 

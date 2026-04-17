@@ -4,16 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Navbar scroll effect ---
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        const handleScroll = () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-    }
-
     // --- Mobile navigation ---
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -198,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedElements.forEach(el => observer.observe(el));
     }
 
-    // --- Container reveal (for stagger groups: brands grid, stats) ---
-    const containerReveals = document.querySelectorAll('.brands-logo-grid, .about-stats');
+    // --- Container reveal (for stagger groups: stats) ---
+    const containerReveals = document.querySelectorAll('.about-stats');
     if (containerReveals.length) {
         const containerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
