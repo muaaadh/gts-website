@@ -959,13 +959,9 @@ p {
 
 .product-brands span {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     gap: 10px;
-    padding: 16px 18px 12px;
-    min-width: 110px;
+    padding: 10px 18px;
     background: var(--cream);
     border-radius: 14px;
     font-size: 0.82rem;
@@ -976,15 +972,15 @@ p {
 }
 
 .product-brands span img {
-    width: 56px;
-    height: 56px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
     flex-shrink: 0;
 }
 
 .product-brands span svg {
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
     opacity: 0.5;
 }
@@ -1156,14 +1152,14 @@ p {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 18px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .portfolio-card {
     background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);
-    padding: 16px 12px 14px;
+    padding: 24px 16px 18px;
     border-radius: var(--radius);
     border: 1px solid var(--gray-200);
     box-shadow:
@@ -1175,13 +1171,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     position: relative;
     text-decoration: none;
     color: inherit;
     opacity: 0;
     transform: translateY(24px);
-    min-height: 180px;
+    min-height: 210px;
 }
 
 .portfolio-grid.revealed .portfolio-card {
@@ -1225,7 +1221,6 @@ p {
     background: linear-gradient(180deg, #ffffff 0%, #fff5f5 100%);
     border-color: rgba(181, 49, 58, 0.18);
     cursor: pointer;
-    padding-top: 32px;
 }
 
 .portfolio-card-featured:hover,
@@ -1241,8 +1236,8 @@ p {
 
 .portfolio-card-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 8px;
+    left: 8px;
     font-family: var(--font-body);
     font-size: 0.56rem;
     font-weight: 700;
@@ -1258,12 +1253,18 @@ p {
 }
 
 .portfolio-card-logo {
-    width: 80px;
-    height: 80px;
+    width: 84px;
+    height: 84px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    flex-shrink: 0;
+    transition: border-color var(--transition);
 }
 
 .portfolio-card-logo img {
@@ -1273,17 +1274,24 @@ p {
     transition: transform var(--transition);
 }
 
+.portfolio-card:hover .portfolio-card-logo {
+    border-color: rgba(181, 49, 58, 0.3);
+}
+
+.portfolio-card-featured:hover .portfolio-card-logo {
+    border-color: rgba(181, 49, 58, 0.5);
+}
+
 .portfolio-card:hover .portfolio-card-logo img {
     transform: scale(1.05);
 }
 
 .portfolio-card-name {
     font-family: var(--font-heading);
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--navy);
-    line-height: 1.2;
-    margin-top: -2px;
+    line-height: 1.25;
 }
 
 .portfolio-card-tags {
@@ -1292,6 +1300,15 @@ p {
     justify-content: center;
     gap: 5px;
     margin-top: auto;
+    padding-top: 4px;
+}
+
+.portfolio-card:not(.portfolio-card-featured) {
+    justify-content: center;
+}
+
+.portfolio-card:not(.portfolio-card-featured) .portfolio-card-tags {
+    margin-top: 0;
 }
 
 .tag {
@@ -1320,7 +1337,10 @@ p {
 }
 
 .portfolio-card-link {
-    margin-top: 2px;
+    margin-top: 4px;
+    padding-top: 8px;
+    width: 100%;
+    border-top: 1px dashed rgba(181, 49, 58, 0.2);
     font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
@@ -2057,7 +2077,7 @@ p {
 
     .portfolio-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+        gap: 16px;
     }
 
     .contact-grid {
@@ -2285,20 +2305,19 @@ p {
     }
 
     .product-brands span {
-        padding: 12px 14px 10px;
+        padding: 8px 12px;
         font-size: 0.75rem;
-        gap: 8px;
-        min-width: 90px;
+        gap: 6px;
     }
 
     .product-brands span img {
-        width: 44px;
-        height: 44px;
+        width: 29px;
+        height: 29px;
     }
 
     .product-brands span svg {
-        width: 32px;
-        height: 32px;
+        width: 21px;
+        height: 21px;
     }
 
     .resort-slider-track {
@@ -2311,17 +2330,13 @@ p {
         padding: 12px 16px;
     }
 
-    .portfolio-card-featured {
-        padding-top: 26px;
-    }
-
     .portfolio-section {
         padding: 80px 0;
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
     }
 
     .portfolio-stats {
@@ -2341,13 +2356,19 @@ p {
     }
 
     .portfolio-card {
-        padding: 16px 12px;
-        min-height: 160px;
+        padding: 20px 12px 16px;
+        min-height: 200px;
+        gap: 10px;
     }
 
     .portfolio-card-logo {
-        width: 56px;
-        height: 56px;
+        width: 72px;
+        height: 72px;
+        padding: 8px;
+    }
+
+    .portfolio-card-name {
+        font-size: 0.85rem;
     }
 
     .projects-timeline::before {
@@ -2405,26 +2426,23 @@ p {
 
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 12px;
     }
 
     .portfolio-card {
-        padding: 12px 10px;
-        min-height: 150px;
-        gap: 6px;
-    }
-
-    .portfolio-card-featured {
-        padding-top: 22px;
+        padding: 18px 10px 14px;
+        min-height: 180px;
+        gap: 10px;
     }
 
     .portfolio-card-logo {
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
+        padding: 8px;
     }
 
     .portfolio-card-name {
-        font-size: 0.78rem;
+        font-size: 0.82rem;
     }
 
     .section {
@@ -2444,21 +2462,20 @@ p {
     }
 
     .product-brands span {
-        padding: 10px 12px 8px;
+        padding: 6px 10px;
         font-size: 0.72rem;
-        gap: 6px;
+        gap: 5px;
         border-radius: 10px;
-        min-width: 78px;
     }
 
     .product-brands span img {
-        width: 36px;
-        height: 36px;
+        width: 23px;
+        height: 23px;
     }
 
     .product-brands span svg {
-        width: 28px;
-        height: 28px;
+        width: 18px;
+        height: 18px;
     }
 
     .footer-grid {
