@@ -222,29 +222,44 @@ p {
 }
 
 .btn-outline {
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.07);
     color: var(--white);
     border-color: rgba(255, 255, 255, 0.28);
-    backdrop-filter: blur(60px) saturate(220%);
-    -webkit-backdrop-filter: blur(60px) saturate(220%);
+    isolation: auto;
+    backdrop-filter: blur(72px) saturate(240%) brightness(1.08);
+    -webkit-backdrop-filter: blur(72px) saturate(240%) brightness(1.08);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.10),
-        0 4px 12px rgba(0, 0, 0, 0.22),
-        0 8px 24px rgba(0, 0, 0, 0.16);
+        inset 0 1px 0 rgba(255, 255, 255, 0.42),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.24),
+        0 12px 34px rgba(0, 0, 0, 0.18);
+}
+
+.btn-outline::before {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.06) 52%, rgba(255, 255, 255, 0.12)),
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), transparent 55%);
+    backdrop-filter: blur(72px) saturate(240%) brightness(1.08);
+    -webkit-backdrop-filter: blur(72px) saturate(240%) brightness(1.08);
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.11);
     border-color: rgba(212, 69, 80, 0.6);
     color: #ffd9dc;
     transform: translateY(-2px);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.42),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14),
         0 2px 4px rgba(142, 39, 48, 0.4),
         0 10px 24px rgba(181, 49, 58, 0.4),
         0 20px 48px rgba(181, 49, 58, 0.25);
+}
+
+.btn-outline:hover::before {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0.14)),
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.26), transparent 55%);
 }
 
 .btn-outline:active {
@@ -628,9 +643,6 @@ p {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s var(--ease-out) 1.4s forwards;
 }
 
 .hero-scroll-indicator { display: none; }
@@ -999,7 +1011,6 @@ p {
     text-align: center;
     margin-top: 56px;
 }
-
 
 /* --- Resort Logos Slider (NEW) --- */
 .resort-slider-section {
@@ -1594,6 +1605,12 @@ p {
     text-transform: uppercase;
 }
 
+.required-mark {
+    color: var(--accent);
+    margin-left: 2px;
+    font-weight: 600;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -2104,10 +2121,10 @@ p {
         margin-bottom: 56px;
     }
 
-    /* Mobile navbar: compact centered pill. MUST NOT have transform,
-       backdrop-filter, filter, perspective, contain, OR will-change with
-       any of those as values — all of these create a containing block that
-       traps the position:fixed .nav-menu inside the narrow pill width. */
+    /* Mobile navbar: compact centered pill. The navbar/container themselves
+       must not use transform, backdrop-filter, filter, perspective, contain,
+       or will-change with those values because that traps the fixed nav menu.
+       The glass blur is applied to a child pseudo-surface instead. */
     .navbar {
         left: 0 !important;
         right: 0 !important;
@@ -2136,11 +2153,37 @@ p {
     }
 
     .nav-container {
+        position: relative;
         width: fit-content;
         max-width: calc(100vw - 32px);
         padding: 24px 20px 24px 24px;
         gap: 32px;
         justify-content: flex-start;
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .nav-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: rgba(10, 14, 26, 0.70);
+        backdrop-filter: saturate(210%) blur(44px) brightness(1.08);
+        -webkit-backdrop-filter: saturate(210%) blur(44px) brightness(1.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.18),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+            0 10px 34px rgba(0, 0, 0, 0.28);
+        pointer-events: none;
+    }
+
+    .nav-logo,
+    .nav-toggle {
+        position: relative;
+        z-index: 1;
     }
 
     .nav-logo img {

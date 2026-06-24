@@ -37,7 +37,7 @@
         "knowsAbout": ["Commercial Kitchen Equipment", "Industrial Laundry Equipment", "Refrigeration Systems", "Hotel Equipment"]
     }
     </script>
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="style.css?v=19">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -601,12 +601,12 @@
                     <div id="formStatus" class="form-status"></div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
+                            <label for="name">Full Name <span class="required-mark" aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" placeholder="Your name">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                            <label for="email">Email Address <span class="required-mark" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com">
                         </div>
                     </div>
                     <div class="form-row">
